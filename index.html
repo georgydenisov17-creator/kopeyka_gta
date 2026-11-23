@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Симулятор Копейки — Top-Down Edition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="introOverlay" class="intro-overlay" style="display: none;">
+    <div class="intro-card">
+      <div class="intro-badge">TOP-DOWN EDITION · CANVAS 2D</div>
+      <h2>Светло-синяя «копейка» ждёт</h2>
+      <p>Разгоняйся по кварталам, крути управляемые заносы на ручнике, жми нитро и следи за дворами. Каждая секунда дрифта и точные столкновения приносят очки на тюнинг.</p>
+      <div class="intro-controls">
+        <span><b>W / ↑</b> Газ</span>
+        <span><b>S / ↓</b> Тормоз / Задний ход</span>
+        <span><b>A / D / ← / →</b> Руль</span>
+        <span><b>Space</b> Ручник</span>
+        <span><b>Shift</b> Нитро</span>
+        <span><b>Esc</b> Меню</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="hud" style="display: none;">
+    <div class="hud-top-left">
+      <div id="score" class="hud-box">
+        <span class="hud-label">ОЧКИ</span>
+        <span id="scoreVal" class="hud-value">0</span>
+      </div>
+      <div class="hud-box">
+        <span class="hud-label">СКОРОСТЬ</span>
+        <span class="hud-value"><span id="speedVal">0</span> км/ч</span>
+      </div>
+      <div class="hud-box nitro-box">
+        <span class="hud-label">НИТРО</span>
+        <div class="nitro-bar">
+          <div id="nitroFill" class="nitro-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hud-hint">ESC — меню / гараж</div>
+  </div>
+
+  <div id="menu" class="screen">
+    <div class="panel menu-panel">
+      <div class="eyebrow">2D TOP-DOWN ARCADE</div>
+      <h1>СИМУЛЯТОР КОПЕЙКИ</h1>
+      <p class="subtitle">Провинциальный город, чистый Canvas 2D, заносы и прокачка.</p>
+      <div class="menu-actions">
+        <button id="btn-play" class="btn-primary">Играть</button>
+        <button id="btn-upgrade" class="btn-secondary">Прокачка</button>
+        <button id="btn-settings" class="btn-secondary">Настройки</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="upgradeScreen" class="screen hidden">
+    <div class="panel">
+      <div class="panel-header">
+        <h2>Гараж и прокачка</h2>
+        <div class="score-pill">Очки: <b id="upgScore">0</b></div>
+      </div>
+      <div id="upgradeList" class="upgrade-list"></div>
+      <div class="panel-footer">
+        <button id="btn-upgrade-back" class="btn-secondary">Назад в меню</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="settingsScreen" class="screen hidden">
+    <div class="panel">
+      <div class="panel-header">
+        <h2>Настройки</h2>
+      </div>
+      <div class="setting-row">
+        <label for="volumeInput">Громкость звука</label>
+        <input id="volumeInput" type="range" min="0" max="100" value="50" />
+      </div>
+      <div class="panel-footer">
+        <button id="btn-settings-back" class="btn-secondary">Назад в меню</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
